@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "374846155632",
+    "firebase_url": "https://cloudart-f5e50.firebaseio.com",
+    "project_id": "cloudart-f5e50",
+    "storage_bucket": "cloudart-f5e50.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374846155632:android:393314ea08b15c6beabdb5",
+        "android_client_info": {
+          "package_name": "com.example.cloudart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374846155632-qcn2lhrea33m0b0ce64dtrslvfgtcmdr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cloudart",
+            "certificate_hash": "b83137e3f74bd21230e668ea0abf3c3cc86f3e14"
+          }
+        },
+        {
+          "client_id": "374846155632-rl0nab7s1r0h33gjf2eamjckst6v5bve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjpk_ABd2APYVcB3Yxvy749Eo4armzdkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374846155632-rl0nab7s1r0h33gjf2eamjckst6v5bve.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
