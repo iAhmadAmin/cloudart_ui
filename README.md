@@ -1,4 +1,8 @@
 # Flutter Social UI Kit - CloudArt
+ 20+ Screens
+⭐ Don't forget to star the repo.
+🥰 I hope this will help beginners.
+🍹 Buy me anything: Payoneer (ammyhunn@gmail.com)
 
 ![cloudart](https://user-images.githubusercontent.com/48145486/104848713-18771580-5908-11eb-8f9e-e49b31129f6d.png)
 
