@@ -3,7 +3,6 @@ import 'package:cloudart/ui/constants/size_config.dart';
 import 'package:cloudart/ui/pages/auth/splash_page.dart';
 import 'package:cloudart/ui/pages/profile/anotheruserprofile.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PostTile extends StatefulWidget {
   final Post post;
@@ -48,7 +47,7 @@ class _PostTileState extends State<PostTile> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: 20.0),
-      height: 350.0,
+      height: 360.0,
       width: SizeConfig.widthMultiplier * 100,
       child: Column(
         children: [

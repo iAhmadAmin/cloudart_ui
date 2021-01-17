@@ -98,7 +98,7 @@ class _AboutMeTabState extends State<AboutMeTab> {
       child: Text(
         tag,
         style: TextStyle(
-            color: Colors.grey[600], fontSize: SizeConfig.textMultiplier * 2.2),
+            color: Colors.grey[600], fontSize: SizeConfig.textMultiplier * 2.0),
       ),
     );
   }

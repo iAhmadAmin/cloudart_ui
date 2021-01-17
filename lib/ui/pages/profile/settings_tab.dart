@@ -223,8 +223,8 @@ class _SettingsTabState extends State<SettingsTab> {
       },
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 4.0),
-        height: SizeConfig.heightMultiplier * 8,
-        width: SizeConfig.widthMultiplier * 16,
+        height: SizeConfig.heightMultiplier * 7,
+        width: SizeConfig.widthMultiplier * 15,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
           boxShadow: [

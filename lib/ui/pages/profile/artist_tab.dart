@@ -2,7 +2,6 @@ import 'package:cloudart/models/data.dart';
 import 'package:cloudart/models/follower.dart';
 import 'package:cloudart/ui/constants/size_config.dart';
 import 'package:cloudart/ui/pages/auth/splash_page.dart';
-import 'package:cloudart/ui/styles/colors.dart';
 import 'package:flutter/material.dart';
 
 class ArtistTab extends StatefulWidget {
@@ -34,7 +33,7 @@ class _ArtistTabState extends State<ArtistTab> {
             Container(
                 padding: EdgeInsets.symmetric(horizontal: 20.0),
                 margin: EdgeInsets.only(top: 4.0),
-                height: 90,
+                height: 112,
                 width: SizeConfig.widthMultiplier * 100,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,

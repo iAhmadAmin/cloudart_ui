@@ -111,15 +111,15 @@ class _SignupPageState extends State<SignupPage> {
       body: Container(
         width: SizeConfig.widthMultiplier * 100,
         height: SizeConfig.heightMultiplier * 100,
-        padding: EdgeInsets.only(
-          top: SizeConfig.heightMultiplier * 7,
-        ),
         decoration: BoxDecoration(
           gradient: themeController.getGrad(),
         ),
         child: SingleChildScrollView(
           child: Column(
             children: [
+              SizedBox(
+                height: SizeConfig.heightMultiplier * 7,
+              ),
               Text("CloudArt",
                   style: TextStyle(
                       color: Colors.white,
