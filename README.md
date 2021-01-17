@@ -1,4 +1,4 @@
-# Flutter Social Kit - CloudArt
+# Flutter Social UI Kit - CloudArt
 
 ![cloudart](https://user-images.githubusercontent.com/48145486/104848713-18771580-5908-11eb-8f9e-e49b31129f6d.png)
 
