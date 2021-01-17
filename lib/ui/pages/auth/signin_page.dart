@@ -1,25 +1,12 @@
-import 'dart:io';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cloudart/services/auth_services.dart';
 import 'package:cloudart/ui/constants/size_config.dart';
 import 'package:cloudart/ui/pages/auth/signup_page.dart';
 import 'package:cloudart/ui/pages/auth/splash_page.dart';
 import 'package:cloudart/ui/pages/home/roothome.dart';
 import 'package:cloudart/ui/pages/profile/user_profile.dart';
-import 'package:cloudart/ui/styles/colors.dart';
 import 'package:cloudart/ui/widgets/auth_btn.dart';
 import 'package:cloudart/ui/widgets/input_field.dart';
 import 'package:cloudart/ui/widgets/progress.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-
-GoogleSignIn _googleSignIn = GoogleSignIn(
-  scopes: <String>[
-    'email',
-    'https://www.googleapis.com/auth/contacts.readonly',
-  ],
-);
 
 class SigninPage extends StatefulWidget {
   @override
@@ -27,30 +14,13 @@ class SigninPage extends StatefulWidget {
 }
 
 class _SigninPageState extends State<SigninPage> {
-  final userRef = FirebaseFirestore.instance.collection('users');
-
   GlobalKey _formKey = GlobalKey<FormState>();
   bool isAuth = false;
   bool isUploading = false;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   TextEditingController emailCntlr = TextEditingController();
   TextEditingController passwordCntlr = TextEditingController();
-  GoogleSignInAccount _currentUser;
   // String _contactText;
-
-  @override
-  void initState() {
-    super.initState();
-    _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount account) {
-      setState(() {
-        _currentUser = account;
-      });
-      if (_currentUser != null) {
-        // _handleGetContact();
-      }
-    });
-    _googleSignIn.signInSilently();
-  }
 
   _buildInputForm() {
     return Form(
@@ -72,42 +42,6 @@ class _SigninPageState extends State<SigninPage> {
         ],
       ),
     );
-  }
-
-  _getUserDataByEmail() async {
-    userRef.doc(emailCntlr.text).get().then((DocumentSnapshot doc) {
-      if (doc.data() == null) {
-        SnackBar snackBar = SnackBar(
-          content: Text("Email & Password didn't matched."),
-        );
-        _scaffoldKey.currentState.showSnackBar(snackBar);
-        print("data not found");
-      } else {
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) {
-          return UserProfilePage();
-        }));
-        print("data found successfulllyyyyyyyyyy");
-      }
-      print("Handle sign in called");
-    });
-  }
-
-  _handleSignin() async {
-    if (emailCntlr.text.isEmpty || passwordCntlr.text.isEmpty) {
-      SnackBar snackBar = SnackBar(
-        content: Text("Fill all fields."),
-      );
-      _scaffoldKey.currentState.showSnackBar(snackBar);
-    } else {
-      setState(() {
-        isUploading = true;
-      });
-      await _getUserDataByEmail();
-      setState(() {
-        isUploading = false;
-      });
-    }
   }
 
   @override
@@ -197,19 +131,7 @@ class _SigninPageState extends State<SigninPage> {
                 label: "Continue with Google",
                 borderClr: Colors.white24,
                 btnClr: Colors.white10,
-                onTap: () async {
-                  await signInWithGoogle().then((result) {
-                    if (result != null) {
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return UserProfilePage();
-                          },
-                        ),
-                      );
-                    }
-                  });
-                },
+                onTap: () {},
               ),
               SizedBox(
                 height: 8.0,
@@ -218,20 +140,7 @@ class _SigninPageState extends State<SigninPage> {
                 label: "Continue with Facebook",
                 borderClr: Colors.white24,
                 btnClr: Colors.white10,
-                onTap: () async {
-                  signInWithFacebook(context);
-                  // await signInWithGoogle().then((result) {
-                  //   if (result != null) {
-                  //     Navigator.of(context).pushReplacement(
-                  //       MaterialPageRoute(
-                  //         builder: (context) {
-                  //           return UserProfilePage();
-                  //         },
-                  //       ),
-                  //     );
-                  //   }
-                  // });
-                },
+                onTap: () {},
               ),
               SizedBox(
                 height: 10.0,

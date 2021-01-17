@@ -1,9 +1,7 @@
-import 'package:cloudart/services/payment_services.dart';
 import 'package:cloudart/ui/constants/size_config.dart';
 import 'package:cloudart/ui/pages/auth/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:progress_dialog/progress_dialog.dart';
-import 'package:stripe_payment/stripe_payment.dart';
 
 class PaymentDetail extends StatefulWidget {
   @override
@@ -28,30 +26,6 @@ class _PaymentDetailState extends State<PaymentDetail> {
       'showBackView': false,
     }
   ];
-
-  payViaExistingCard(card) async {
-    ProgressDialog dialog = new ProgressDialog(context);
-    dialog.style(message: 'Please wait...');
-    await dialog.show();
-    var expiryArr = card['expiryDate'].split('/');
-    CreditCard stripeCard = CreditCard(
-      number: card['cardNumber'],
-      expMonth: int.parse(expiryArr[0]),
-      expYear: int.parse(expiryArr[1]),
-    );
-    var response = await StripeService.payViaExistingCard(
-        amount: '2500', currency: 'USD', card: stripeCard);
-    await dialog.hide();
-    _scaffoldKey.currentState
-        .showSnackBar(SnackBar(
-          content: Text(response.message),
-          duration: new Duration(milliseconds: 1200),
-        ))
-        .closed
-        .then((_) {
-      // Navigator.pop(context);
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -123,9 +97,7 @@ class _PaymentDetailState extends State<PaymentDetail> {
                       height: 6.0,
                     ),
                     _buildPaymentTile(
-                        onTap: () {
-                          payViaExistingCard(cards[0]);
-                        },
+                        onTap: () {},
                         paymentName: "Visa Card",
                         imgPath: "assets/images/visa.png",
                         cardNo: "**** **** **** 4323"),
@@ -133,9 +105,7 @@ class _PaymentDetailState extends State<PaymentDetail> {
                       height: 10.0,
                     ),
                     _buildPaymentTile(
-                        onTap: () {
-                          payViaExistingCard(cards[1]);
-                        },
+                        onTap: () {},
                         paymentName: "Mastercard Card",
                         imgPath: "assets/images/mastercard.png",
                         cardNo: "**** **** **** 1234"),

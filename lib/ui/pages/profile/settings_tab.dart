@@ -1,5 +1,4 @@
 import 'package:cloudart/controllers/theme_controller.dart';
-import 'package:cloudart/services/payment_services.dart';
 import 'package:cloudart/ui/constants/size_config.dart';
 import 'package:cloudart/ui/pages/profile/payment_detail.dart';
 import 'package:cloudart/ui/pages/profile/user_profile.dart';
@@ -19,12 +18,6 @@ class _SettingsTabState extends State<SettingsTab> {
   bool isNotification = true;
   bool isTheme = true;
   bool isDarkTheme = false;
-
-  @override
-  void initState() {
-    super.initState();
-    StripeService.init();
-  }
 
   @override
   Widget build(BuildContext context) {

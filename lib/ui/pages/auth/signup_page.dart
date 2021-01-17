@@ -1,8 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloudart/ui/constants/size_config.dart';
 import 'package:cloudart/ui/pages/auth/signin_page.dart';
 import 'package:cloudart/ui/pages/auth/splash_page.dart';
-import 'package:cloudart/ui/styles/colors.dart';
 import 'package:cloudart/ui/widgets/auth_btn.dart';
 import 'package:cloudart/ui/widgets/date_picker.dart';
 import 'package:cloudart/ui/widgets/input_field.dart';
@@ -15,8 +13,6 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
-  final userRef = FirebaseFirestore.instance.collection('users');
-
   bool isUploading = false;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   GlobalKey _formKey = GlobalKey<FormState>();
@@ -105,33 +101,7 @@ class _SignupPageState extends State<SignupPage> {
         content: Text("Please fill all fields."),
       );
       _scaffoldKey.currentState.showSnackBar(snackBar);
-    } else {
-      setState(() {
-        isUploading = true;
-      });
-      await saveDataInFireStore();
-      setState(() {
-        isUploading = false;
-      });
-      SnackBar snackBar = SnackBar(
-        content: Text("Sign-Up successfully."),
-      );
-
-      _scaffoldKey.currentState.showSnackBar(snackBar);
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => SigninPage()));
-      print("data saved successfullyyyyyyyyyyyyy");
-    }
-  }
-
-  saveDataInFireStore({String mediaUrl, String location, String description}) {
-    userRef.doc(emailCntlr.text).set({
-      "artistName": artistNameCntlr.text,
-      "firstName": artistNameCntlr.text,
-      "email": emailCntlr.text,
-      "lastName": lNameCntlr.text,
-      "password": passwordCntlr.text,
-    });
+    } else {}
   }
 
   @override
